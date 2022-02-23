@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "lab_sult"
+version = "0.1.0"
+description = ""
+authors = ["iliyB <iliy-b@mail.ru>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.74.1"
+motor = "^2.5.1"
+uvicorn = "^0.17.5"
+passlib = "^1.7.4"
+asyncio = "^3.4.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  db:
+    container_name: lab_sult_db
+    build: ./mongo
+    restart: always
+    volumes:
+      - db_volume:/data/db
+    ports:
+      - 127.0.0.1:27019:27017
+
+
+  app:
+    volumes:
+      - ${PWD}/src:/src
+    container_name: lab_sult_app
+    build:
+      context: .
+      dockerfile: ./src/Dockerfile
+    restart: always
+    depends_on:
+      - db
+    env_file:
+      - .env
+    ports:
+      - 127.0.0.1:8008:8000
+
+volumes:
+  db_volume:
